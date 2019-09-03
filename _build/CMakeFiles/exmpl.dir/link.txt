@@ -1,2 +1,0 @@
-/usr/bin/ar qc libexmpl.a  CMakeFiles/exmpl.dir/source/source.cpp.o
-/usr/bin/ranlib libexmpl.a

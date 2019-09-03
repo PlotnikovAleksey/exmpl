@@ -1,0 +1,13 @@
+os: linux
+language: 
+- cpp
+
+jobs:
+  include:
+  - name: "building"
+    script:
+    - cmake -H. -B_build -DBUILD_TESTS=ON
+    - cmake --build _build
+  - name: "tests"
+    script:
+    - ./_build/tests
