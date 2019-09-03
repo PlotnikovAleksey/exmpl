@@ -3,7 +3,7 @@ language:
 - cpp
 
 install:
-  -source ci/travis/install-linux.sh
+  - source ci/travis/install-linux.sh
 
 jobs:
   include:
