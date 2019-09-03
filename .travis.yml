@@ -2,21 +2,14 @@ os: linux
 language: 
 - cpp
 
-env:
-    # список переменных окружения, влияющих на матрицу сборки:
-    - TARGET_CPU=amd64 BUILD_CONFIGURATION=Debug
-    - TARGET_CPU=amd64 BUILD_CONFIGURATION=Release
-    - TARGET_CPU=x86 BUILD_CONFIGURATION=Debug
-    - TARGET_CPU=x86 BUILD_CONFIGURATION=Release
-
 jobs:
   include:
   - name: "building"
     script:
-    - cmake -H. -B_build -DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=$BUILD_CONFIGURATION -DTARGET_CPU=$TARGET_CPU
+    - cmake -H. -B_build -DBUILD_TESTS=ON
     - cmake --build _build
   - name: "tests"
     script:
-    - cmake -H. -B_build -DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=$BUILD_CONFIGURATION -DTARGET_CPU=$TARGET_CPU
+    - cmake -H. -B_build -DBUILD_TESTS=O
     - cmake --build _build --target tests
     - ./_build/tests
