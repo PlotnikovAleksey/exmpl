@@ -10,6 +10,6 @@ jobs:
     - cmake --build _build
   - name: "tests"
     script:
-    - cmake -H. -B_build -DBUILD_TESTS=O
+    - cmake -H. -B_build -DBUILD_TESTS=ON
     - cmake --build _build --target tests
     - ./_build/tests
