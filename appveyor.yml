@@ -23,4 +23,4 @@ build_script:
 - cmake --build _build
 
 test_script:
-- '%APPVEYOR_BUILD_FOLDER%\%CONFIGURATION%\tests.exe'
+- '%APPVEYOR_BUILD_FOLDER%\_build\%CONFIGURATION%\tests.exe'
