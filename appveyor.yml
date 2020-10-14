@@ -25,7 +25,7 @@ before_build:
 #  project: $(APPVEYOR_BUILD_FOLDER)\$(APPVEYOR_PROJECT_NAME).sln
 
 #test_script:
-  - '%APPVEYOR_BUILD_FOLDER%\%CONFIGURATION%\tests.exe'
+#  - '%APPVEYOR_BUILD_FOLDER%\%CONFIGURATION%\tests.exe'
   
 # Cам скрипт
 build_script:
