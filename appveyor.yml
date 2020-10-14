@@ -22,6 +22,9 @@ environment:
   matrix:
     - TOOLCHAIN: msvc17
 
+before_build:
+- git submodule update --init --recursive
+
 # Cам скрипт
 build_script:
 - cmake -H. -B_build -DBUILD_TESTS=ON
