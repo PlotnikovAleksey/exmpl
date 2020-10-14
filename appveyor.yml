@@ -1,9 +1,6 @@
 # Сборка будет происходить на VS 2017
 image: Visual Studio 2017
 
-# Папка, куда будет клонироваться проект
-#clone_folder: c:\projects\my-prj
-
 # Сборка будет происходить под x64
 platform:
   - x64
@@ -11,6 +8,7 @@ platform:
 # Собираться будет debug версия
 configuration:
   - Debug
+  - Release
 
 # Задание условий среды
 environment:
@@ -19,15 +17,10 @@ environment:
 
 before_build:
 - git submodule update --init --recursive
-#- cmake -G "Visual Studio 15 2017 Win64" -DBUILD_TESTS=ON .
-
-#build:
-#  project: $(APPVEYOR_BUILD_FOLDER)\$(APPVEYOR_PROJECT_NAME).sln
-
-#test_script:
-#  - '%APPVEYOR_BUILD_FOLDER%\%CONFIGURATION%\tests.exe'
   
-# Cам скрипт
 build_script:
-- cmake -H. -B_build -DBUILD_TESTS=ON
+- cmake -H. -B_build
 - cmake --build _build
+
+test_script:
+- '%APPVEYOR_BUILD_FOLDER%\%CONFIGURATION%\tests.exe'
