@@ -18,6 +18,10 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 #$ git submodule add https://github.com/google/googletest third-party/gtest
 #$ cd third-party/gtest && git checkout release-1.8.1 && cd ../..
 
+if (MSVC)
+    # VS 2017 removed tr1
+    add_definitions(-DGTEST_HAS_TR1_TUPLE=0)
+
 if(BUILD_TESTS)
         enable_testing()
         add_subdirectory(third-party/gtest)
