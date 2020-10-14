@@ -21,6 +21,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 if (MSVC)
     # VS 2017 removed tr1
     add_definitions(-DGTEST_HAS_TR1_TUPLE=0)
+endif()
 
 if(BUILD_TESTS)
         enable_testing()
