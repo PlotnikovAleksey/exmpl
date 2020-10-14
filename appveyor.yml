@@ -20,7 +20,7 @@ before_build:
   
 build_script:
 - cmake -H. -B_build
-- cmake --build _build
+- cmake --build _build --config %CONFIGURATION%
 
 test_script:
 - '%APPVEYOR_BUILD_FOLDER%\_build\%CONFIGURATION%\tests.exe'
