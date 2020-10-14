@@ -1,0 +1,28 @@
+# Сборка будет происходить на VS 2017
+image: Visual Studio 2017
+
+# Секция инициализации. Возможно строка в ней необязательна, но она есть в
+# официальной документации
+init:
+  - git config --global core.autocrlf input
+
+# Папка, куда будет клонироваться проект
+#clone_folder: c:\projects\my-prj
+
+# Сборка будет происходить под x64
+platform:
+  - x64
+
+# Собираться будет debug версия
+configuration:
+  - Debug
+
+# Задание условий среды
+environment:
+  matrix:
+    - TOOLCHAIN: msvc17
+
+# Cам скрипт
+build_script:
+- cmake -H. -B_build -DBUILD_TESTS=ON
+- cmake --build _build
