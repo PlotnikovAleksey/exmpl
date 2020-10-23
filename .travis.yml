@@ -6,10 +6,10 @@ jobs:
   include:
   - name: "building"
     script:
-    - cmake -H. -B_build -DBUILD_TESTS=ON
+    - cmake -H. -B_build
     - cmake --build _build
   - name: "tests"
     script:
-    - cmake -H. -B_build -DBUILD_TESTS=ON
+    - cmake -H. -B_build
     - cmake --build _build --target tests
     - ./_build/tests
